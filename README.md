@@ -1,21 +1,28 @@
 # 미션 - 자판기
 
-## 🔍 진행방식
+## 🔍 진행 방식
 
-- 미션은 **기능 요구사항, 프로그래밍 요구사항, 과제 진행 요구사항** 세 가지로 구성되어 있다.
-- 세 개의 요구사항을 만족하기 위해 노력한다. 특히 기능을 구현하기 전에 기능 목록을 만들고, 기능 단위로 커밋 하는 방식으로 진행한다.
-- 기능 요구사항에 기재되지 않은 내용은 스스로 판단하여 구현한다.
+- 미션은 **기능 요구 사항, 프로그래밍 요구 사항, 과제 진행 요구 사항** 세 가지로 구성되어 있다.
+- 세 개의 요구 사항을 만족하기 위해 노력한다. 특히 기능을 구현하기 전에 기능 목록을 만들고, 기능 단위로 커밋 하는 방식으로 진행한다.
+- 기능 요구 사항에 기재되지 않은 내용은 **스스로 판단하여 구현한다.**
 
-## ✉️ 미션 제출 방법
+## 📮 미션 제출 방법
 
 - 미션 구현을 완료한 후 GitHub을 통해 제출해야 한다.
-   - 본인의 GitHub ID와 동일한 이름의 브랜치에 코드를 제출한다.
-   - main Branch로 Pull Request를 생성한다.
+    - GitHub을 활용한 제출 방법은 [우아한테크코스 프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고해 제출한다.
+- GitHub에 미션을 제출한 후 슬랙 `#미션-제출` 채널에 PR 주소를 올린다.
+    - **Pull Request만 보내고 Slack에 메시지를 보내지 않으면 리뷰를 하지 않으므로 주의한다.**
 
-## ✔️ 과제 제출 전 체크리스트
+## 🚨 과제 제출 전 체크 리스트
 
-- 터미널에서 `java -version`을 실행해 자바 8인지 확인한다. 또는 Eclipse, IntelliJ IDEA와 같은 IDE의 자바 8로 실행하는지 확인한다.
-- 터미널에서 맥 또는 리눅스 사용자의 경우 `./gradlew clean test`, 윈도우 사용자의 경우 `gradlew.bat clean test` 명령을 실행했을 때 모든 테스트가 아래와 같이 통과하는지 확인한다.
+- 기능 구현을 모두 정상적으로 했더라도 **요구 사항에 명시된 출력값 형식을 지켜야한다.**
+- 기능 구현을 완료한 뒤 아래 가이드에 따라 테스트를 실행했을 때 모든 테스트가 성공하는지 확인한다.
+
+### 테스트 실행 가이드
+
+- 터미널에서 `java -version`을 실행하여 Java 버전이 11인지 확인한다. 또는 Eclipse 또는 IntelliJ IDEA와 같은 IDE에서 Java 11로 실행되는지 확인한다.
+- 터미널에서 Mac 또는 Linux 사용자의 경우 `./gradlew clean test` 명령을 실행하고,   
+  Windows 사용자의 경우  `gradlew.bat clean test` 명령을 실행할 때 모든 테스트가 아래와 같이 통과하는지 확인한다.
 
 ```
 BUILD SUCCESSFUL in 0s
@@ -110,10 +117,10 @@ BUILD SUCCESSFUL in 0s
 
 ## 🎱 프로그래밍 요구사항
 
-- 프로그램을 실행하는 시작점은 `Application`의 `main()`이다.
-- JDK 8 버전에서 실행 가능해야 한다. **JDK 8에서 정상 동작하지 않을 경우 0점 처리**한다.
-- 자바 코드 컨벤션을 지키면서 프로그래밍한다.
-   - https://naver.github.io/hackday-conventions-java
+- JDK 11 버전에서 실행 가능해야 한다. 
+- 프로그램 실행의 시작점은 `Application`의 `main()`이다.
+- `build.gradle` 파일을 변경할 수 없고, 외부 라이브러리를 사용하지 않는다.
+- [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/master/styleguide/java) 가이드를 준수하며 프로그래밍한다.
 - indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
    - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
    - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 된다.
@@ -152,13 +159,14 @@ public enum Coin {
 - JDK에서 기본 제공하는 Random, Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms`, `Console` API를 활용해 구현해야 한다.
    - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInList()`를 활용한다.
    - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-- 프로그램 구현을 완료했을 때 `src/test/java` 디렉터리의 `ApplicationTest`에 있는 모든 테스트 케이스가 성공해야 한다. **테스트가 실패할 경우 0점 처리한다.**
+- 프로그램 구현을 완료했을 때 `src/test/java` 디렉터리의 `ApplicationTest`에 있는 모든 테스트 케이스가 성공해야 한다.
 
 ---
 
-## 📈 과제 진행 요구사항
+## ✏️ 과제 진행 요구 사항
 
-- 미션은 [java-vendingmachine-precourse](https://github.com/woowacourse/java-vendingmachine-precourse) 저장소를 Fork/Clone해 시작한다.
-- **기능을 구현하기 전에 java-vendingmachine-precourse/docs/README.md 파일에 구현할 기능 목록을 정리**해 추가한다.
-- **Git의 커밋 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위**로 추가한다.
-   - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
+- 미션은 [java-vendingmachine](https://github.com/grow-up-study/java-vendingmachine) 저장소를 Fork & Clone해 시작한다.
+- 과제 진행 및 제출 방법은 [우아한테크코스 프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+- **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
+- **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
+    - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
