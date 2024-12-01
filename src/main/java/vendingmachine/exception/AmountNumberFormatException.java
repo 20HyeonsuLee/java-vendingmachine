@@ -1,8 +1,8 @@
 package vendingmachine.exception;
 
-public class AmountNumberFormatException extends IllegalArgumentException {
+public class AmountNumberFormatException extends IllegalArgumentBaseException {
 
     public AmountNumberFormatException() {
-        super(ExceptionMessage.AMOUNT_NUMBER_FORMAT.getMessage());
+        super(ExceptionMessage.AMOUNT_NUMBER_FORMAT);
     }
 }
