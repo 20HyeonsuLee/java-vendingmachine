@@ -2,7 +2,7 @@ package vendingmachine.exception;
 
 public class ProductPriceFromatException extends IllegalArgumentException {
 
-    protected ProductPriceFromatException() {
+    public ProductPriceFromatException() {
         super(ExceptionMessage.PRODUCT_PRICE_FORMAT.getMessage());
     }
 }
