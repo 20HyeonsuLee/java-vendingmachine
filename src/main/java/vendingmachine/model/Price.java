@@ -15,4 +15,8 @@ public class Price {
             throw new ProductPriceFromatException();
         }
     }
+
+    public int getPrice() {
+        return price;
+    }
 }

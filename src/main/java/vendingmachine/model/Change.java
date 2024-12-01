@@ -14,4 +14,11 @@ public class Change {
             remainMoney -= coin.getAmount() * coinCount;
         }
     }
+
+    public int getTotalChange() {
+        return changeMoney.entrySet()
+                .stream()
+                .mapToInt(changeEntry -> changeEntry.getKey().getAmount() * changeEntry.getValue())
+                .sum();
+    }
 }

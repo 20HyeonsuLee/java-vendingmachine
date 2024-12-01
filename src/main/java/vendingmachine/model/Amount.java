@@ -1,10 +1,9 @@
 package vendingmachine.model;
 
 import vendingmachine.exception.AmountFormatException;
-import vendingmachine.exception.AmountNumberFormatException;
 
 public class Amount {
-    private final int amount;
+    private int amount;
 
     public Amount(int amount) {
         validateAmount(amount);
@@ -15,5 +14,13 @@ public class Amount {
         if (amount % 10 != 0) {
             throw new AmountFormatException();
         }
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void decrease(int amount) {
+        this.amount -= amount;
     }
 }

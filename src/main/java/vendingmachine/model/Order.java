@@ -6,4 +6,8 @@ public class Order {
     public Order(Name productName) {
         this.productName = productName;
     }
+
+    public Name name() {
+        return new Name(productName.getName());
+    }
 }

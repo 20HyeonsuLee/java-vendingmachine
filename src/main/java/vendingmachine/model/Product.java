@@ -1,5 +1,7 @@
 package vendingmachine.model;
 
+import vendingmachine.exception.AmountNotEnoughException;
+
 public class Product {
     private final Name name;
     private final Price price;
@@ -11,4 +13,15 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public Name getName() {
+        return name;
+    }
+
+    public boolean isBuyable(Amount amount) {
+        return price.getPrice() <= amount.getAmount();
+    }
+
+    public int getPrice() {
+        return price.getPrice();
+    }
 }
