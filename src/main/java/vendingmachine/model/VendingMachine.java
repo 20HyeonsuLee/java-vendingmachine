@@ -18,7 +18,7 @@ public class VendingMachine {
         if (change.getTotalChange() <= amount.getAmount()) {
             return change;
         }
-        return new Change(amount.getAmount());
+        return new Change(new MachineAmount(amount.getAmount()));
     }
 
     public boolean isBuyableAnyProduct() {
@@ -28,7 +28,6 @@ public class VendingMachine {
     public void buy(Order order) {
         Product product = validateOrder(order);
         amount.decrease(product.getPrice());
-
     }
 
     private Product validateOrder(Order order) {
@@ -37,5 +36,9 @@ public class VendingMachine {
             throw new AmountNotEnoughException();
         }
         return product;
+    }
+
+    public int getAmount() {
+        return amount.getAmount();
     }
 }

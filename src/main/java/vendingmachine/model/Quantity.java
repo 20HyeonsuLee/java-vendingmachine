@@ -10,8 +10,8 @@ public class Quantity {
         this.quantity = quantity;
     }
 
-private void validateQuantity(int quantity) {
-        if (quantity < 0) {
+    private void validateQuantity(int quantity) {
+        if (quantity <= 0) {
             throw new ProductQuantityFormatException();
         }
     }
