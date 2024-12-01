@@ -3,11 +3,11 @@ package vendingmachine.model;
 import vendingmachine.exception.AmountFormatException;
 
 public class Amount {
-    private int amount;
+    private int value;
 
     public Amount(int amount) {
         validateAmount(amount);
-        this.amount = amount;
+        this.value = amount;
     }
 
     private void validateAmount(int amount) {
@@ -16,14 +16,14 @@ public class Amount {
         }
     }
 
-    public int getAmount() {
-        return amount;
+    public int getValue() {
+        return value;
     }
 
     public void decrease(int amount) {
-        if (this.amount - amount < 0) {
+        if (this.value - amount < 0) {
             throw new AmountFormatException();
         }
-        this.amount -= amount;
+        this.value -= amount;
     }
 }

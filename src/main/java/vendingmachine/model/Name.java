@@ -4,11 +4,11 @@ import java.util.Objects;
 import vendingmachine.exception.ProductNameNotBlankException;
 
 public class Name {
-    private final String name;
+    private final String value;
 
     public Name(String name) {
         validateName(name);
-        this.name = name;
+        this.value = name;
     }
 
     private void validateName(String name) {
@@ -17,8 +17,8 @@ public class Name {
         }
     }
 
-    public String getName() {
-        return name;
+    public String getValue() {
+        return value;
     }
 
     @Override
@@ -30,11 +30,11 @@ public class Name {
             return false;
         }
         Name otherName = (Name) other;
-        return Objects.equals(getName(), otherName.getName());
+        return Objects.equals(getValue(), otherName.getValue());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getName());
+        return Objects.hashCode(getValue());
     }
 }

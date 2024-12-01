@@ -8,6 +8,6 @@ public class Order {
     }
 
     public Name name() {
-        return new Name(productName.getName());
+        return new Name(productName.getValue());
     }
 }

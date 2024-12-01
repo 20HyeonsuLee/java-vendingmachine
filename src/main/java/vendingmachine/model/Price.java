@@ -3,11 +3,11 @@ package vendingmachine.model;
 import vendingmachine.exception.ProductPriceFromatException;
 
 public class Price {
-    private final int price;
+    private final int value;
 
     public Price(int price) {
         validateAmount(price);
-        this.price = price;
+        this.value = price;
     }
 
     private void validateAmount(int price) {
@@ -16,7 +16,7 @@ public class Price {
         }
     }
 
-    public int getPrice() {
-        return price;
+    public int getValue() {
+        return value;
     }
 }

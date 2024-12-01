@@ -16,10 +16,10 @@ public class VendingMachine {
     }
 
     public Change getChange() {
-        if (change.getTotalChange() <= amount.getAmount()) {
+        if (change.getTotalChange() <= amount.getValue()) {
             return change;
         }
-        return new Change(new MachineAmount(amount.getAmount()));
+        return new Change(new MachineAmount(amount.getValue()));
     }
 
     public boolean isBuyableAnyProduct() {
@@ -44,6 +44,6 @@ public class VendingMachine {
     }
 
     public int getAmount() {
-        return amount.getAmount();
+        return amount.getValue();
     }
 }

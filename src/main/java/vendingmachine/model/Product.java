@@ -16,11 +16,11 @@ public class Product {
     }
 
     public boolean isBuyable(Amount amount) {
-        return price.getPrice() <= amount.getAmount();
+        return price.getValue() <= amount.getValue();
     }
 
     public int getPrice() {
-        return price.getPrice();
+        return price.getValue();
     }
 
     public void decreaseQuantity() {

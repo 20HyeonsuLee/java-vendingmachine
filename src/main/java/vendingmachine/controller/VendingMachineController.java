@@ -26,7 +26,6 @@ public class VendingMachineController {
         Amount amount = handleInput(this::inputAmount);
         vendingMachineService = new VendingMachineService(new VendingMachine(change, products, amount));
         buy();
-
     }
 
     private void buy() {
@@ -55,7 +54,7 @@ public class VendingMachineController {
     }
 
     private Change inputMachineAmount() {
-        MachineAmount amount = Parser.parseAmountInt(inputView.inputMachineAmount());
+        MachineAmount amount = Parser.parseMachineAmount(inputView.inputMachineAmount());
         return new Change(amount);
     }
 

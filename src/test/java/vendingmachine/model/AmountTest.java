@@ -4,7 +4,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import camp.nextstep.edu.missionutils.test.Assertions;
 import org.junit.jupiter.api.Test;
 
 class AmountTest {
@@ -29,7 +28,7 @@ class AmountTest {
         assertSimpleTest(() -> {
             Amount amount = new Amount(10);
             amount.decrease(5);
-            assertThat(amount.getAmount()).isEqualTo(5);
+            assertThat(amount.getValue()).isEqualTo(5);
         });
     }
 }

@@ -19,8 +19,4 @@ public class MachineAmount {
     public int getAmount() {
         return amount;
     }
-
-    public void decrease(int amount) {
-        this.amount -= amount;
-    }
 }
