@@ -2,6 +2,7 @@ package vendingmachine.model;
 
 import vendingmachine.exception.AmountNotEnoughException;
 import vendingmachine.exception.ProductNameNotFoundException;
+import vendingmachine.exception.ProductQuantityNotEnoughException;
 
 public class VendingMachine {
     private final Change change;
@@ -22,18 +23,22 @@ public class VendingMachine {
     }
 
     public boolean isBuyableAnyProduct() {
-        return products.findMinPrice() <= amount.getAmount();
+        return products.buyableProductCount(getAmount()) > 0;
     }
 
     public void buy(Order order) {
         Product product = validateOrder(order);
         amount.decrease(product.getPrice());
+        product.decreaseQuantity();
     }
 
     private Product validateOrder(Order order) {
         Product product = products.find(order.name()).orElseThrow(ProductNameNotFoundException::new);
         if (!product.isBuyable(amount)) {
             throw new AmountNotEnoughException();
+        }
+        if (!product.isEnoughQuantity()) {
+            throw new ProductQuantityNotEnoughException();
         }
         return product;
     }

@@ -21,6 +21,9 @@ public class Amount {
     }
 
     public void decrease(int amount) {
+        if (this.amount - amount < 0) {
+            throw new AmountFormatException();
+        }
         this.amount -= amount;
     }
 }

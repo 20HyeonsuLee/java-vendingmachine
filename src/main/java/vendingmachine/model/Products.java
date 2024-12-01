@@ -17,6 +17,13 @@ public class Products implements Iterable<Product> {
         return products.stream().filter(product -> product.getName().equals(name)).findFirst();
     }
 
+    public long buyableProductCount(int amount) {
+        return products.stream()
+                .filter(product -> product.getPrice() <= amount)
+                .filter(product -> product.getQuantity() > 0)
+                .count();
+    }
+
     @Override
     public Iterator<Product> iterator() {
         return products.iterator();

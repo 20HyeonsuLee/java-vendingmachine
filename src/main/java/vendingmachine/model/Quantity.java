@@ -3,7 +3,7 @@ package vendingmachine.model;
 import vendingmachine.exception.ProductQuantityFormatException;
 
 public class Quantity {
-    private final int quantity;
+    private int quantity;
 
     public Quantity(int quantity) {
         validateQuantity(quantity);
@@ -14,5 +14,13 @@ public class Quantity {
         if (quantity <= 0) {
             throw new ProductQuantityFormatException();
         }
+    }
+
+    public void decrease() {
+        this.quantity--;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }
